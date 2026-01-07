@@ -37,9 +37,10 @@ gum style --bold "INSTALL MISC"
 
 echo ""
 gum style --bold "INSTALL PNGUS LNX"
-./.pngus-lnx/install.sh 2>&1 | prefix_output && echo ""
+$HOME/.pngus-lnx/install.sh 2>&1 | prefix_output && echo ""
 
 echo ""
 gum style --bold "INSTALL DOTFILES"
 ./dotfiles/install-zsh-dotfiles.sh 2>&1 | prefix_output && echo ""
 ./dotfiles/install-ghostty-dotfiles.sh 2>&1 | prefix_output && echo ""
+./dotfiles/install-waybar-dotfiles.sh 2>&1 | prefix_output && echo ""
