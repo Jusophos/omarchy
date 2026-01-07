@@ -33,3 +33,6 @@ gum style --bold "INSTALL MISC"
 
 ./misc/install-dotfiles-repo.sh 2>&1 | prefix_output && echo ""
 
+gum style --bold "INSTALL DOTFILES"
+./dotfiles/install-ghostty-dotfiles.sh 2>&1 | prefix_output && echo ""
+./dotfiles/install-zsh-dotfiles.sh 2>&1 | prefix_output && echo ""
