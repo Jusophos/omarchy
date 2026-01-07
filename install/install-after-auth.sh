@@ -18,6 +18,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # ----------------------------------------
 # Functions
+run_indented_tty() {
+  # Run command under a pseudo-terminal so colors/prompts keep working
+  local cmd_str
+  cmd_str="$(printf '%q ' "$@")"
+  script -qefc "$cmd_str" /dev/null | prefix_output
+}
 prefix_output() {
   local prefix="  "
   while IFS= read -r line; do
@@ -32,15 +38,15 @@ cd "$SCRIPT_DIR"
 echo ""
 gum style --bold "INSTALL MISC"
 
-./misc/install-dotfiles-repo.sh 2>&1 | prefix_output && echo ""
-./misc/install-pngus-lnx.sh 2>&1 | prefix_output && echo ""
+run_indented_tty ./misc/install-dotfiles-repo.sh && echo ""
+run_indented_tty ./misc/install-pngus-lnx.sh && echo ""
 
 echo ""
 gum style --bold "INSTALL PNGUS LNX"
-$HOME/.pngus-lnx/install.sh 2>&1 | prefix_output && echo ""
+run_indented_tty $HOME/.pngus-lnx/install.sh && echo ""
 
 echo ""
 gum style --bold "INSTALL DOTFILES"
-./dotfiles/install-zsh-dotfiles.sh 2>&1 | prefix_output && echo ""
-./dotfiles/install-ghostty-dotfiles.sh 2>&1 | prefix_output && echo ""
-./dotfiles/install-waybar-dotfiles.sh 2>&1 | prefix_output && echo ""
+run_indented_tty ./dotfiles/install-zsh-dotfiles.sh && echo ""
+run_indented_tty ./dotfiles/install-ghostty-dotfiles.sh && echo ""
+run_indented_tty ./dotfiles/install-waybar-dotfiles.sh && echo ""
