@@ -20,21 +20,21 @@ trap cleanup SIGINT
 
 # Variables
 SCRIPT_PATH=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
-INSTALL_DIR=$(realpath "$SCRIPT_PATH/../install")
-PKG_FILE="$INSTALL_DIR/packages/pacman.packages"
+INSTALL_DIR=$(realpath "$SCRIPT_PATH/../install/packages")
+PKG_FILE="$INSTALL_DIR/pacman.packages"
 GIT_REPO=$(realpath "$SCRIPT_PATH/../")
 ADD_COMMAND=(sudo pacman -S)
 SOURCE="arch"
 if [[ $argc_source == "flatpak" ]]; then
 
-  PKG_FILE="$INSTALL_DIR/flathub-packages.txt"
+  PKG_FILE="$INSTALL_DIR/flathub.packages"
   ADD_COMMAND=(flatpak install)
   SOURCE="flatpak"
   echo "(i) source:   flatpak"
 
 elif [[ $argc_source == "aur" ]]; then
 
-  PKG_FILE="$INSTALL_DIR/aur-packages.txt"
+  PKG_FILE="$INSTALL_DIR/aur.packages"
   ADD_COMMAND=(yay -S --noconfirm)
   SOURCE="aur"
   echo "(i) source:   aur"
