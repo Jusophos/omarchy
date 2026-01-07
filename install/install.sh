@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-
+echo ""
 
 # ----------------------------------------
 # Setup traps
@@ -16,11 +16,13 @@ trap 'echo "Received SIGINT — forwarding to group"; kill -SIGINT -"$PGID" 2>/d
 # Variables
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
+BOLD="$(printf '\033[1m')"
+RESET="$(printf '\033[0m')"
 
 # ----------------------------------------
 # Functions
 prefix_output() {
-  local prefix="  > "
+  local prefix="  "
   while IFS= read -r line; do
     printf '%s %s\n' "$prefix" "$line"
   done
@@ -30,7 +32,8 @@ prefix_output() {
 # Installation
 cd "$SCRIPT_DIR"
 
-echo -e "INSTALL PACKAGES"
-./packages/install-packages-packman.sh 2>&1 | prefix_output
-./packages/install-packages-aur.sh 2>&1 | prefix_output
+printf '%s%s%s\n\n' "$BOLD" "INSTALL PACKAGES" "$RESET"
+
+./packages/install-packages-packman.sh 2>&1 | prefix_output && echo ""
+./packages/install-packages-aur.sh 2>&1 | prefix_output && echo ""
 
