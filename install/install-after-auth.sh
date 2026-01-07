@@ -50,3 +50,7 @@ gum style --bold "INSTALL DOTFILES"
 run_indented_tty ./dotfiles/install-zsh-dotfiles.sh && echo ""
 run_indented_tty ./dotfiles/install-ghostty-dotfiles.sh && echo ""
 run_indented_tty ./dotfiles/install-waybar-dotfiles.sh && echo ""
+
+echo ""
+gum style --bold "INSTALL SERVICES"
+run_indented_tty ./services/install-syncthing-service.sh && echo ""
