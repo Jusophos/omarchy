@@ -40,6 +40,9 @@ gum style --bold "INSTALL MISC"
 
 run_indented_tty ./misc/install-dotfiles-repo.sh && echo ""
 run_indented_tty ./misc/install-pngus-lnx.sh && echo ""
+run_indented_tty ./misc/install-tresorit.sh && echo ""
+run_indented_tty ./misc/install-omarchy-themes.sh && echo ""
+run_indented_tty ./misc/install-omarchy-custom-themes.sh && echo ""
 
 echo ""
 gum style --bold "INSTALL PNGUS LNX"
