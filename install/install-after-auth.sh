@@ -29,10 +29,17 @@ prefix_output() {
 # Installation
 cd "$SCRIPT_DIR"
 
+echo ""
 gum style --bold "INSTALL MISC"
 
 ./misc/install-dotfiles-repo.sh 2>&1 | prefix_output && echo ""
+./misc/install-pngus-lnx.sh 2>&1 | prefix_output && echo ""
 
+echo ""
+gum style --bold "INSTALL PNGUS LNX"
+./.pngus-lnx/install.sh 2>&1 | prefix_output && echo ""
+
+echo ""
 gum style --bold "INSTALL DOTFILES"
-./dotfiles/install-ghostty-dotfiles.sh 2>&1 | prefix_output && echo ""
 ./dotfiles/install-zsh-dotfiles.sh 2>&1 | prefix_output && echo ""
+./dotfiles/install-ghostty-dotfiles.sh 2>&1 | prefix_output && echo ""

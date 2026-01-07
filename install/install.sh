@@ -28,9 +28,10 @@ prefix_output() {
   done
 }
 
-# ----------------------------------------
-# Installation
 cd "$SCRIPT_DIR"
+
+# ----------------------------------------
+# Installation: packages
 
 printf '%s%s%s\n\n' "$BOLD" "INSTALL PACKAGES" "$RESET"
 
