@@ -28,6 +28,7 @@ SOURCE="arch"
 
 if [[ $argc_source == "flatpak" ]]; then
 
+  echo "(x) flatpak is currently not supported!"
   PKG_FILE="$INSTALL_DIR/flathub.packages"
   REMOVE_COMMAND=(flatpak uninstall)
   SOURCE="flatpak"

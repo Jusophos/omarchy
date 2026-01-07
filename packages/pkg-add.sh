@@ -27,6 +27,8 @@ ADD_COMMAND=(sudo pacman -S)
 SOURCE="arch"
 if [[ $argc_source == "flatpak" ]]; then
 
+  echo "(x) flatpak is currently not supported!"
+  exit 1
   PKG_FILE="$INSTALL_DIR/flathub.packages"
   ADD_COMMAND=(flatpak install)
   SOURCE="flatpak"
