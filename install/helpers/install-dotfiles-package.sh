@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # @describe install a dotfiles stow package into the system
 # @option --config_name     The local config name
+# @flag -y --noconfirm      Autoconfirm all deletions
 # @flag -v --verbose        Show more output
 # @flag -d --dryrun         Dont make any file wirting operations
 # @arg stow_package!        The name of the stow package 
@@ -66,12 +67,15 @@ echo "⚙  installing waybar dotfiles ..."
 
 
 if [[ -d "$CONFIG_DIR" ]]; then
-  if ! gum confirm "A waybar config already exists. It is required to remove it. Continue?"; then
-    echo ""
-    echo "⚠ user skipped removal."
-    echo "  ↪ exiting ..."
-    echo ""
-    exit 1
+
+  if (( ! $argc_noconfirm )); then
+    if ! gum confirm "A waybar config already exists. It is required to remove it. Continue?"; then
+      echo ""
+      echo "⚠ user skipped removal."
+      echo "  ↪ exiting ..."
+      echo ""
+      exit 1
+    fi
   fi
 
   echo ""

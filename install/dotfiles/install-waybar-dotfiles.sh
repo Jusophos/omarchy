@@ -10,4 +10,4 @@ STOW_PACKAGE="waybar"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 HELPERS=$(realpath "$SCRIPT_DIR/../helpers")
 
-"$HELPERS/install-dotfiles-package.sh" "$STOW_PACKAGE" 
+"$HELPERS/install-dotfiles-package.sh" "$STOW_PACKAGE" --noconfirm 
