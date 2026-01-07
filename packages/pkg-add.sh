@@ -118,6 +118,6 @@ if [[ -z $argc_nogit ]]; then
 
   echo ""
 
-  git commit "install/$(basename $PKG_FILE)" -m "auto(pkg-add/$SOURCE): add $argc_package package"
+  git commit "install/packages/$(basename $PKG_FILE)" -m "auto(pkg-add/$SOURCE): add $argc_package package"
   git push origin main
 fi
