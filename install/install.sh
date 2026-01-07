@@ -36,4 +36,5 @@ printf '%s%s%s\n\n' "$BOLD" "INSTALL PACKAGES" "$RESET"
 
 ./packages/install-packages-packman.sh 2>&1 | prefix_output && echo ""
 ./packages/install-packages-aur.sh 2>&1 | prefix_output && echo ""
+./packages/install-packages-cargo.sh 2>&1 | prefix_output && echo ""
 
