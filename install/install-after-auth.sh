@@ -4,13 +4,30 @@ set -euo pipefail
 echo ""
 
 # ----------------------------------------
-# Setup traps
-if [[ $$ -ne $(ps -o pgid= $$ | tr -d ' ') ]]; then
-  exec setsid "$0" "$@"
-fi
-PGID=$(ps -o pgid= $$ | tr -d ' ')
+# Setup killing sub processes
+cleanup() {
+  local code=$?
+  trap - INT TERM EXIT
 
-trap 'echo "Received SIGINT — forwarding to group"; kill -SIGINT -"$PGID" 2>/dev/null || true; exit 130' SIGINT
+  # If we were interrupted, forward to whole process group
+  if [[ $code -eq 130 ]]; then
+    echo "Received SIGINT — killing process group"
+  else
+    echo "Exiting (code=$code) — killing process group"
+  fi
+
+  # Send TERM first, then KILL as fallback
+  kill -TERM 0 2>/dev/null || true
+  sleep 0.2
+  kill -KILL 0 2>/dev/null || true
+
+  exit "$code"
+}
+
+on_int() { exit 130; }
+
+trap on_int INT
+trap cleanup TERM EXIT
 
 # ----------------------------------------
 # Variables
@@ -55,6 +72,7 @@ gum style --bold "INSTALL DOTFILES"
 run_indented_tty ./dotfiles/install-zsh-dotfiles.sh && echo ""
 run_indented_tty ./dotfiles/install-ghostty-dotfiles.sh && echo ""
 run_indented_tty ./dotfiles/install-waybar-dotfiles.sh && echo ""
+run_indented_tty ./dotfiles/install-hypr-dotfiles.sh && echo ""
 
 echo ""
 gum style --bold "INSTALL SERVICES"
