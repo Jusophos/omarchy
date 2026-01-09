@@ -33,3 +33,35 @@ else
 
   fi
 fi
+
+
+# Hypr Bindings overwrites
+HYPR_BINDINGS_OVERWRITES_LINE="source = ~/.config/hypr/bindings.overwrites.conf"
+HYPR_BINDINGS_OVERWRITE_FILE="$HOME/.config/hypr/bindings.conf"
+
+echo "  🪟 adding overwrite capabilities to omarchy hypr key bindings ..."
+
+if grep -Fxiq "$HYPR_BINDINGS_OVERWRITES_LINE" -- "$HYPR_BINDINGS_OVERWRITE_FILE"; then
+
+  echo "  🪟 > 🖐 skipping patching, already patched."
+
+else
+
+  if [[ ! -f "$HYPR_BINDINGS_OVERWRITE_FILE" ]]; then
+   
+    echo "  🪟 > ❌ omarchy bindings file is missing. skipping!"
+    echo "    ↪ $HYPR_BINDINGS_OVERWRITE_FILE"
+
+  else
+    
+    echo "  🪟 > patching hypr keybindings file ..."
+    echo "" >> "$HYPR_BINDINGS_OVERWRITE_FILE"
+    echo "# DO NOT EDIT OR REMOVE" >> "$HYPR_BINDINGS_OVERWRITE_FILE"
+    echo "$HYPR_BINDINGS_OVERWRITES_LINE" >> "$HYPR_BINDINGS_OVERWRITE_FILE"
+    echo "    ↪ ✅ file successfully patched!"
+    echo "  🪟 > restarting hyprland ..."
+    hyprctl reload
+  fi
+fi
+
+
