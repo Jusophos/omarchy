@@ -7,7 +7,7 @@ echo ""
 echo "🍣 installing omarchy tweaks ..."
 
 # Themes
-THEME_WAYBAR_IMPORT_LINE="@import \"../omarchy/current/theme/waybar.overwrite.css\";"
+THEME_WAYBAR_IMPORT_LINE="@import \"./waybar.overwrites.css\";"
 THEME_WAYBAR_CSS_FILE="$HOME/.config/waybar/style.css"
 
 echo "  🎨 adding overwrite capabilities to omarchy themes ( waybar ) ..."
