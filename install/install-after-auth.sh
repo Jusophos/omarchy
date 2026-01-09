@@ -61,6 +61,7 @@ run_indented_tty ./misc/install-tresorit.sh && echo ""
 run_indented_tty ./misc/install-bun.sh && echo ""
 run_indented_tty ./misc/install-bun-apps.sh && echo ""
 run_indented_tty ./misc/install-1pw-browser-rules.sh && echo ""
+run_indented_tty ./misc/install-omarchy-tweaks.sh && echo ""
 
 
 echo ""
