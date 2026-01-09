@@ -8,3 +8,6 @@ echo "🎨 installing custom themes ..."
 
 echo "  ↪ pngu-catppuccin"
 ln -sv "$LOCAL_DIR/pngu-catppuccin" "$THEMES_DIR/pngu-catppuccin"
+
+echo "  ↪ pngu-catppuccin-latte"
+ln -sv "$LOCAL_DIR/pngu-catppuccin-latte" "$THEMES_DIR/pngu-catppuccin-latte"
