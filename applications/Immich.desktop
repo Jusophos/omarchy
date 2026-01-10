@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Immich
+Comment=Immich
+Exec=omarchy-launch-webapp http://lions-home.taile2f866.ts.net:2283
+Terminal=false
+Type=Application
+Icon=/home/pngu/.local/share/applications/icons/Immich.png
+StartupNotify=true
