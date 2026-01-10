@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Calcure
+Comment=Calcure
+Exec=xdg-terminal-exec --app-id=TUI.tile -e calcure
+Terminal=false
+Type=Application
+Icon=/home/pngu/.local/share/applications/icons/Calcure.png
+StartupNotify=true
