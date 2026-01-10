@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=TGT
+Comment=TGT
+Exec=xdg-terminal-exec --app-id=TUI.tile -e tgt
+Terminal=false
+Type=Application
+Icon=/home/pngu/.local/share/applications/icons/TGT.png
+StartupNotify=true
