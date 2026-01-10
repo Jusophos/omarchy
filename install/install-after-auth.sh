@@ -75,6 +75,7 @@ run_indented_tty ./dotfiles/install-zsh-dotfiles.sh && echo ""
 run_indented_tty ./dotfiles/install-ghostty-dotfiles.sh && echo ""
 run_indented_tty ./dotfiles/install-waybar-dotfiles.sh && echo ""
 run_indented_tty ./dotfiles/install-hypr-dotfiles.sh && echo ""
+run_indented_tty ./dotfiles/install-yazi-dotfiles.sh && echo ""
 
 echo ""
 gum style --bold "INSTALL SERVICES"
