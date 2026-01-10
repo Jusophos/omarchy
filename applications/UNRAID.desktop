@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=UNRAID
+Comment=UNRAID
+Exec=omarchy-launch-webapp https://lions-home.taile2f866.ts.net/
+Terminal=false
+Type=Application
+Icon=/home/pngu/.local/share/applications/icons/UNRAID.png
+StartupNotify=true
