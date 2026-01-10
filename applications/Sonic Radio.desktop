@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Sonic Radio
+Comment=Sonic Radio
+Exec=xdg-terminal-exec --app-id=TUI.float -e sonicradio
+Terminal=false
+Type=Application
+Icon=/home/pngu/.local/share/applications/icons/Sonic Radio.png
+StartupNotify=true
